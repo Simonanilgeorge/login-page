@@ -26,6 +26,17 @@ userForm=this.fb.group({
   ngOnInit(): void {
   }
 
+
+  get username(){
+    return this.userForm.get('username');
+  }
+
+  get email(){
+    return this.userForm.get('email');
+  }
+  get password(){
+    return this.userForm.get('password');
+  }
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.log(this.userForm.value);

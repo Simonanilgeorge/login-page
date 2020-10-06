@@ -3,7 +3,7 @@
 
 .container {
     display: flex;
-    height: 100vh;
+    height: 110vh;
     justify-content:space-around;
     align-items: center;
     flex-direction: column;
@@ -22,6 +22,9 @@
 
 
 }
+label{
+    margin-bottom: 10px;
+}
 
 .input {
     width: 100%;
@@ -38,9 +41,10 @@
     padding: 10px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 100px;
-   
+    justify-content:center;
+    height: 105px;
+position: relative;
+
 
 }
 
@@ -79,8 +83,13 @@
 
 .warning-message{
     color:red;
-    position: relative;
-    top:5px;
 
-    /* visibility: hidden; */
+    position: absolute;
+    bottom:0;
+
+    transition: 0.3s ease-in-out;
+
+
+
+
 }
