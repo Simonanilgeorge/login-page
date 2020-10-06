@@ -1,84 +1,59 @@
-.loginbox{
-    height:90vh;
- 
-    border:1px solid rgb(201, 188, 188);
+
+
+
+.container {
     display: flex;
-    flex-direction:column;
-    justify-content: center;
+    height: 100vh;
+    justify-content:space-around;
     align-items: center;
-    padding:20px 20px;
-    background: rgb(247, 245, 245);
-    margin:10px;
+    flex-direction: column;
+    background: rgb(243, 241, 241);
+}
+
+.loginbox {
+    /* height:600px; */
+    width: 350px;
+
+    background: white;
+    padding: 20px 20px;
+    border-radius: 2%;
+
+
+
 
 }
 
-.inputareabox{
-    /* border:2px solid red; */
-    width:100%;
-    height:100%;
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: grey 1px solid;
+
+}
+
+.button {
+    border: none;
+    background: rgb(10, 155, 10);
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 80px;
+    transition: 0.3s ease-in-out;
+}
+
+.inputarea {
+
+    padding: 10px 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding:20px 20px;
-
-
+    justify-content: space-around;
+    height: 100px;
 
 }
 
-.inputarea{
-    /* border:2px solid black; */
+.button:hover {
+    background: rgb(7, 117, 5);
+    cursor:pointer;
     
-    padding:20px 20px;
-    height:200px;
-    width:400px;
-
 
 }
-
-.input{
-
-     width: 100%;
-    padding:10px 10px;
-     margin: 8px 0;
-     display: inline-block;
-     border: 1px solid #ccc;
-     border-radius: 4px;
-     box-sizing: border-box;
-
-    }
-
-    
-.input:focus{
-    border:1 px solid red;
-}
-
-
-
-.button{
-
-
-border: none;
-color: white;
-padding: 10px 25px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-background: rgb(101, 206, 101);
-border-radius: 5%;
-margin: 4px 2px;
-cursor: pointer;
-transition: 0.3s ease-in-out;
-
-}
-
-.button:hover{
-    background: rgb(5, 145, 5);
-}
-
-
-.container{
-    display: flex;
-    justify-content: center;
-}
-
