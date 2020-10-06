@@ -31,6 +31,19 @@
 
 }
 
+
+
+.inputarea {
+
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100px;
+   
+
+}
+
 .button {
     border: none;
     background: rgb(10, 155, 10);
@@ -40,20 +53,34 @@
     width: 80px;
     transition: 0.3s ease-in-out;
 }
+.button[disabled]{
+    border: none;
+     background: rgb(10, 155, 10);
+     opacity: 0.5;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 80px;
 
-.inputarea {
-
-    padding: 10px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100px;
-
+    
 }
 
+.button:hover[disabled]{
+    background: rgb(10, 155, 10);
+    cursor: default;
+    opacity: 0.5;
+}
 .button:hover {
     background: rgb(7, 117, 5);
     cursor:pointer;
     
 
+}
+
+.warning-message{
+    color:red;
+    position: relative;
+    top:5px;
+
+    /* visibility: hidden; */
 }

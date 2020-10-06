@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserDto } from '../../dto/user.dto';
+import { FormControl,FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+
+  // public User:UserDto=new UserDto();
+userForm=this.fb.group({
+
+  username:['',Validators.required],
+  email:['',Validators.required],
+  password:['',Validators.required]
+
+});
+  
+
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.log(this.userForm.value);
   }
 
 }
