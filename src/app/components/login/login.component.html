@@ -5,6 +5,9 @@
 
 
     </div>
+    <div *ngIf="notValid">
+        <div class="invalidcred">Invalid credentials</div>
+     </div>
     <div class="loginbox">
 
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
@@ -51,9 +54,7 @@
                 <button type="submit" [disabled]="!userForm.valid" class="button">sign in</button>
             </div>
         </form>
-        <div *ngIf="notValid">
-            <div class="invalidcred">Invalid credentials</div>
-         </div>
+
     </div>
 
 

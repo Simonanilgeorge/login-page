@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserDto } from '../../dto/user.dto';
 import { FormControl, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../providers/login.service';
+import {Router,ActivatedRoute} from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) { }
+  constructor(private fb: FormBuilder, private loginService: LoginService,private router:Router,private activatedrouter:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getUserInfo();
@@ -77,6 +79,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.notValid = false;
+      this.router.navigate(['/home',this.username.value]);
     }
 
   }
