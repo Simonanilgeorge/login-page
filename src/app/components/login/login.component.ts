@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDto } from '../../dto/user.dto';
-import { FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../providers/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  getUserInfo() {
+  async getUserInfo() {
 
 
     this.loginService.getUserInfo().then(data => {
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     return this.userForm.get('password');
   }
   onSubmit() {
-    // TODO: Use EventEmitter with form value
+
     console.log(this.userForm.value);
     console.log(this.username.value);
     console.log(this.allUsers);
