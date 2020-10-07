@@ -8,35 +8,53 @@
     <div class="loginbox">
 
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
             <div class="inputarea">
+
+
                 <label for="username">Username</label><input id="username" type="text" class="input"
                     formControlName="username">
-                    <div *ngIf="username.invalid && (username.dirty || username.touched)">
-                <small class="warning-message">Username required</small>
+
+                <div *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <small class="warning-message">Username required</small>
+                </div>
+
+
             </div>
-            </div>
+
             <div class="inputarea">
+
+
                 <label for="password">email</label><input id="email" type="email" class="input" formControlName="email">
 
                 <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                <small class="warning-message">email required</small>
+                    <small class="warning-message">email required</small>
                 </div>
+
+
             </div>
+
             <div class="inputarea">
+
                 <label for="password">Password</label><input id="password" type="password" class="input"
                     formControlName="password">
-                    <div *ngIf="password.invalid && (password.dirty || password.touched)">
-                <small class="warning-message">Password required</small>
+
+
+                <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                    <small class="warning-message">Password required</small>
                 </div>
+
             </div>
 
-            <div class="inputarea"><button type="submit" [disabled]="!userForm.valid" class="button">sign in</button>
+            <div class="inputarea">
+
+                <button type="submit" [disabled]="!userForm.valid" class="button">sign in</button>
             </div>
         </form>
+        <div *ngIf="notValid">
+            <div class="invalidcred">Invalid credentials</div>
+         </div>
     </div>
-    <p> {{userForm.value|json}}</p>
-    <p>form status : {{userForm.status}}</p>
-
 
 
 </div>
