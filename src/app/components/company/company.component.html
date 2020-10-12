@@ -4,8 +4,11 @@
 <div class="container">
 <p-toast></p-toast>
 
-<h1 style="text-align: center;">Company Master</h1>
+<!-- <h1 style="text-align: center;">Company Master</h1> -->
+<p-accordion [multiple]="true" activeIndex="0 1">
 
+
+    <p-accordionTab header="Company Table">
 
 <p-toolbar styleClass="p-mb-4">
     <ng-template pTemplate="left">
@@ -55,4 +58,8 @@
 
 </p-table>
 
+
+</p-accordionTab>
+
+</p-accordion>
 </div>
