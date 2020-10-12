@@ -89,10 +89,10 @@
 
     <p-dialog [(visible)]="countryDialog" [style]="{width: '450px'}" header="Country Details" [modal]="true" styleClass="p-fluid">
         <ng-template pTemplate="content">
-       
-            <p>Name</p><input [(ngModel)]="country.name" type="text" pInputText>
-            <p>Alpha2code (max: 2 characters)</p><input style="text-transform: uppercase;" [(ngModel)]="country.alpha2Code" maxlength="2" type="text" pInputText>
-            <p>Alpha3code (max: 3 characters)</p><input style="text-transform: uppercase;" [(ngModel)]="country.alpha3Code" maxlength="3" type="text" pInputText>
+       <div class="inputarea">  <p>Name</p><input [(ngModel)]="country.name" type="text" pInputText></div>
+          <div class="inputarea"><p>Alpha2code (max: 2 characters)</p><input style="text-transform: uppercase;" [(ngModel)]="country.alpha2Code" maxlength="2" type="text" pInputText></div>
+<div class="inputarea">            <p>Alpha3code (max: 3 characters)</p><input style="text-transform: uppercase;" [(ngModel)]="country.alpha3Code" maxlength="3" type="text" pInputText></div>
+
      </ng-template>
         
         <ng-template pTemplate="footer">
