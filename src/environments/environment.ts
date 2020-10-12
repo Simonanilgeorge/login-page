@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  base_url:"https://trn.api.alqasim.net",
   production: false
 };
 
