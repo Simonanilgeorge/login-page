@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding:20px 20px;
+    margin:10px;
+    /* border:1px solid black; */
+}
+
+h1{
+    /* border: 1px solid black; */
+    height:100px;
+    padding:20px 20px;
+}
+
+.p-field{
+    /* border:1px solid black; */
+    height:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
