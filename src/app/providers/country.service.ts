@@ -21,5 +21,8 @@ async addCountry(country:Country):Promise<Country>{
   return this.http.post<Country>(this.url,country).toPromise();
 
 }
+async deleteCountry(code:number):Promise<Country>{
+  return this.http.delete<Country>(`${this.url}/${code}`).toPromise();
+}
 
 }
