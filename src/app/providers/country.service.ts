@@ -25,4 +25,10 @@ async deleteCountry(code:number):Promise<Country>{
   return this.http.delete<Country>(`${this.url}/${code}`).toPromise();
 }
 
+async updateCountry(country,code):Promise<Country>{
+
+  let url=`${this.url}/${code}`;
+  console.log(`url is ${url}`);
+  return this.http.put<Country>(url,country).toPromise();
+}
 }

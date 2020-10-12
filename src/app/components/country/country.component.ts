@@ -58,6 +58,17 @@ export class CountryComponent implements OnInit {
   }
 
 
+  update(code:number,name:string,alpha2Code:string,alpha3Code:string){
+    this.country.name=name;
+    this.country.alpha2Code=alpha2Code;
+    this.country.alpha3Code=alpha3Code;
+    console.log(`country to be updated is ${code}`);
+    console.log(`the country to be updated is ${JSON.stringify(this.country)}`)
+    this.countryService.updateCountry(this.country,code).then(data=>{
+      console.log(`updated data is ${JSON.stringify(data)}`);
+    })
+  }
+
   openNew() {
 
     this.submitted = false;
@@ -69,4 +80,8 @@ hideDialog() {
   this.submitted = false;
 }
 
+
+log(){
+  console.log(`test`);
+}
 }
