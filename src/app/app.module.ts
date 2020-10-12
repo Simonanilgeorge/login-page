@@ -21,11 +21,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {DialogModule} from 'primeng/dialog';
+import { CompanyComponent } from './components/company/company.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    CountryComponent
+    CountryComponent,
+    CompanyComponent
 
   ],
   imports: [
