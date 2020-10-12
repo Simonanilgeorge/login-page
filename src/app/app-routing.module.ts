@@ -4,9 +4,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import {CompanyComponent } from './components/company/company.component';
 import {AddOrUpdateComponent} from './components/company/add-or-update/add-or-update.component';
+import {CountryComponent} from './components/country/country.component';
 
 
 const routes: Routes = [{ path: '', pathMatch: 'full', component: LoginComponent },
+{path:'company',component:CompanyComponent},
+{path:'country',component:CountryComponent},
 { path: 'home/:username', component: HomeComponent },
 {path:'addcompany',component:AddOrUpdateComponent},
 {path:'updatecompany/:coCode',component:AddOrUpdateComponent}];
