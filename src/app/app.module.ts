@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {CalendarModule} from 'primeng/calendar';
 import {TableModule} from 'primeng/table';
 import {TabViewModule} from 'primeng/tabview';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {ToolbarModule} from 'primeng/toolbar';
 import {DialogModule} from 'primeng/dialog';
@@ -32,6 +33,7 @@ import {DialogModule} from 'primeng/dialog';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
 
     InputTextModule,
     DialogModule,
@@ -46,6 +48,7 @@ import {DialogModule} from 'primeng/dialog';
     CalendarModule,
     TableModule,
     ToolbarModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],

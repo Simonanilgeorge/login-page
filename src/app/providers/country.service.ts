@@ -12,11 +12,14 @@ export class CountryService {
 
   constructor(private http: HttpClient) { }
 
-  getCountries():Promise<Country[]>{
+  async getCountries():Promise<Country[]>{
     return this.http.get<Country[]>(this.url).toPromise();
 
   }
 
+async addCountry(country:Country):Promise<Country>{
+  return this.http.post<Country>(this.url,country).toPromise();
 
+}
 
 }

@@ -13,8 +13,10 @@ export class CountryComponent implements OnInit {
   countryDialog: boolean;
   submitted: boolean;
   public countries:Country[]=[];
+
   public country:Country=new Country();
 
+  clonedProducts: { [s: string]: Country; } = {};
 
   constructor(private countryService:CountryService ) { }
 
@@ -32,7 +34,24 @@ export class CountryComponent implements OnInit {
   }
 
   add(){
+    this.countryService.addCountry(this.country).then(data=>{
+      console.log(data);
+      this.countries.push(data);
     
+    })
+
   }
+
+
+  openNew() {
+
+    this.submitted = false;
+    this.countryDialog = true;
+}
+
+hideDialog() {
+  this.countryDialog = false;
+  this.submitted = false;
+}
 
 }
