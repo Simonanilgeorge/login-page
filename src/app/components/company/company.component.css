@@ -1,0 +1,16 @@
+.container{
+    /* border:5px solid rgb(173, 218, 211); */
+    margin:100px;
+    /* width:70%; */
+    padding:40px 40px;
+    border-radius:3px;
+    background: rgb(232, 241, 240);
+}
+
+
+h1{
+    height:100px;
+    padding:10px 10px;
+    color: rgb(7, 45, 49);
+}
+
