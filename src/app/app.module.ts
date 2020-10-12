@@ -18,7 +18,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {TableModule} from 'primeng/table';
 import {TabViewModule} from 'primeng/tabview';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {DialogModule} from 'primeng/dialog';
 @NgModule({
@@ -39,6 +39,7 @@ import {DialogModule} from 'primeng/dialog';
     DialogModule,
     ButtonModule,
     TabViewModule,
+    ToastModule,
 
 		CheckboxModule,
 		RadioButtonModule,

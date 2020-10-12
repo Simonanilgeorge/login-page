@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {Country} from '../../dto/country.dto';
 import {CountryService } from '../../providers/country.service';
+import { MessageService } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.css'],
+  providers: [MessageService]
 })
 export class CountryComponent implements OnInit {
 
@@ -18,9 +21,10 @@ export class CountryComponent implements OnInit {
 
   clonedProducts: { [s: string]: Country; } = {};
 
-  constructor(private countryService:CountryService ) { }
+  constructor(private countryService:CountryService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
     this.getCountries();
 
   }
@@ -39,7 +43,7 @@ export class CountryComponent implements OnInit {
       this.countries.push(data);
     
     })
-
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Added' });
   }
 
   delete(code:number){
@@ -55,6 +59,7 @@ export class CountryComponent implements OnInit {
         return false;
       }
     })
+    this.messageService.add({ severity: 'error', summary: 'Success', detail: 'Country Deleted' });
   }
 
 
@@ -67,6 +72,7 @@ export class CountryComponent implements OnInit {
     this.countryService.updateCountry(this.country,code).then(data=>{
       console.log(`updated data is ${JSON.stringify(data)}`);
     })
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Updated' });
   }
 
   openNew() {
