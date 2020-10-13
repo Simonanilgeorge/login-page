@@ -1,0 +1,17 @@
+.container{
+    /* border:5px solid rgb(173, 218, 211); */
+    margin:100px;
+    /* width:70%; */
+    padding: 40px 50px;
+ 
+    border-radius:3px;
+ 
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
+}
+
+
+h1{
+
+margin-bottom: 20px;
+  
+}
