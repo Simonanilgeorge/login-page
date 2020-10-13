@@ -25,6 +25,7 @@ export class LoginService {
   }
 
   getCurrentUser(){
+    console.log(this.currentUser);
     return this.currentUser;
   }
 }

@@ -19,3 +19,15 @@ margin-bottom: 20px;
     line-height:35px;
     background: white;
 }
+
+
+.welcome{
+    font-weight: lighter;
+
+  
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}

@@ -29,7 +29,9 @@ displayCurrentUser(){
 
   }
   else {
+
     this.userName = this.loginService.getCurrentUser();
+
   }
 
 }
