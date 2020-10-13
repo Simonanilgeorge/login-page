@@ -3,7 +3,7 @@
 .nav {
 
     height: 160px;
-    background-color: #457fca;
+    background-color: #3579d3;
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
@@ -33,9 +33,10 @@ a:hover{
     color:rgb(218, 213, 213);
 }
 
-.nav a:focus{
-  
 
+
+
+ .active-link{
     color:rgb(218, 213, 213);
-  }
 
+ }
