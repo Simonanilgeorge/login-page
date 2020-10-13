@@ -2,9 +2,10 @@
 
 
 .container {
+    margin:20px;
     display: flex;
     height: 110vh;
-    justify-content:space-around;
+    justify-content:flex-start;
     align-items: center;
     flex-direction: column;
     background: rgb(243, 241, 241);
