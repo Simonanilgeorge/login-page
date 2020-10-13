@@ -5,7 +5,6 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CountryComponent } from './components/country/country.component';
 
 import {RippleModule} from 'primeng/ripple';
 import {InputTextModule} from 'primeng/inputtext';
@@ -22,17 +21,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {DialogModule} from 'primeng/dialog';
-import { CompanyComponent } from './components/company/company.component';
-import { AddOrUpdateComponent } from './components/company/add-or-update/add-or-update.component';
+
 import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    CountryComponent,
-    CompanyComponent,
-    AddOrUpdateComponent
-
   ],
   imports: [
     BrowserModule,

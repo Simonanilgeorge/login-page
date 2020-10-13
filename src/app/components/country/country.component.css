@@ -1,3 +1,21 @@
 .inputarea{
     height:100px;
 }
+
+
+.container{
+    /* border:5px solid rgb(173, 218, 211); */
+    margin:100px;
+    /* width:70%; */
+ 
+    border-radius:3px;
+ 
+    box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 5px 22px 4px rgba(0, 0, 0, 0.12), 0 12px 17px 2px rgba(0, 0, 0, 0.14);
+}
+
+
+h1{
+    height:100px;
+    padding:10px 10px;
+    color: rgb(7, 45, 49);
+}

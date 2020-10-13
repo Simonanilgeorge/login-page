@@ -75,14 +75,14 @@ export class AddOrUpdateComponent implements OnInit {
         this.updateMandatory = false;
         return;
 
-      } 
+      }
 
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
         this.updateMandatory = false;
         return;
-      } 
+      }
 
 
       if (this.company.modiCloseDate == null) {
@@ -99,21 +99,21 @@ export class AddOrUpdateComponent implements OnInit {
         return;
       }
 
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company Updated' });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company Updated' });
 
-        if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
-        if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
+      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+      if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
 
-        this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
+      this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
-        this.CompanyService.updateCompany(this.company.coCode, this.company).then(data => {
-          console.log(`the upadted company is`)
-          console.log(Object.entries(data));
-        },
-          (err) => {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
-            console.log(`error`);
-          })
+      this.CompanyService.updateCompany(this.company.coCode, this.company).then(data => {
+        console.log(`the upadted company is`)
+        console.log(Object.entries(data));
+      },
+        (err) => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
+          console.log(`error`);
+        })
 
 
 
@@ -135,14 +135,14 @@ export class AddOrUpdateComponent implements OnInit {
         this.addMandatory = false;
         return;
 
-      } 
+      }
 
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
         this.addMandatory = false;
         return;
-      
+
       }
 
 
@@ -165,26 +165,26 @@ export class AddOrUpdateComponent implements OnInit {
 
 
 
-  
-
-        if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
-        if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
 
 
-        this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
+      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+      if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
 
-        this.CompanyService.addNewCompany(this.company).then(data => {
-          console.log(Object.entries(data));
-        },
-          (err) => {
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
 
-            console.log(`error`);
-          });
 
-    
+      this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
+
+      this.CompanyService.addNewCompany(this.company).then(data => {
+        console.log(Object.entries(data));
+      },
+        (err) => {
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
+
+          console.log(`error`);
+        });
+
+
     }
   }
 

@@ -79,7 +79,8 @@ export class LoginComponent implements OnInit {
     }
     else {
       this.notValid = false;
-      this.router.navigate(['/home', this.username.value]);
+      // this.router.navigate(['/home', this.username.value]);
+      this.router.navigate(['/home']);
     }
 
   }
