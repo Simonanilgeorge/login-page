@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../../providers/login.service';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +12,26 @@ export class HomeComponent implements OnInit {
 
   public userName: string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.userName = this.route.snapshot.paramMap.get('username');
+    this.displayCurrentUser();
+
 
   }
+
+displayCurrentUser(){
+  if (this.route.snapshot.params.username) {
+    let currentUser = this.route.snapshot.paramMap.get('username');
+    this.loginService.saveUserName(currentUser);
+    this.userName = currentUser;
+
+
+  }
+  else {
+    this.userName = this.loginService.getCurrentUser();
+  }
+
+}
 
 }
