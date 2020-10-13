@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Country} from '../../dto/country.dto';
+import {CountryDto} from '../../dto/country.dto';
 import {CountryService } from '../../providers/country.service';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
@@ -15,11 +15,11 @@ export class CountryComponent implements OnInit {
 
   countryDialog: boolean;
   submitted: boolean;
-  public countries:Country[]=[];
+  public countries:CountryDto[]=[];
 
-  public country:Country=new Country();
+  public country:CountryDto=new CountryDto();
 
-  clonedProducts: { [s: string]: Country; } = {};
+  clonedProducts: { [s: string]: CountryDto; } = {};
 
   constructor(private countryService:CountryService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
@@ -59,7 +59,7 @@ export class CountryComponent implements OnInit {
         return false;
       }
     })
-    this.messageService.add({ severity: 'error', summary: 'Success', detail: 'Country Deleted' });
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Deleted' });
   }
 
 

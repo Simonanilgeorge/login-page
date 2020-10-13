@@ -66,13 +66,13 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-        this.updateMandatory = false;
+     
         return;
       }
 
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-        this.updateMandatory = false;
+        
         return;
 
       }
@@ -80,14 +80,14 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-        this.updateMandatory = false;
+   
         return;
       }
 
 
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-        this.updateMandatory = false;
+    
         return;
       }
 
@@ -95,7 +95,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-        this.updateMandatory = false;
+  
         return;
       }
 
@@ -125,14 +125,14 @@ export class AddOrUpdateComponent implements OnInit {
     else {
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-        this.addMandatory = false;
+
         return;
 
       }
 
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-        this.addMandatory = false;
+      
         return;
 
       }
@@ -140,7 +140,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-        this.addMandatory = false;
+    
         return;
 
       }
@@ -148,7 +148,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-        this.addMandatory = false;
+     
         return;
 
       }
@@ -156,7 +156,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-        this.addMandatory = false;
+     
         return;
 
 

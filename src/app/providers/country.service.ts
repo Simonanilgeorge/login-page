@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from  '@angular/common/http';
-import {Country} from '../dto/country.dto';
+import {CountryDto} from '../dto/country.dto';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -12,23 +12,23 @@ export class CountryService {
 
   constructor(private http: HttpClient) { }
 
-  async getCountries():Promise<Country[]>{
-    return this.http.get<Country[]>(this.url).toPromise();
+  async getCountries():Promise<CountryDto[]>{
+    return this.http.get<CountryDto[]>(this.url).toPromise();
 
   }
 
-async addCountry(country:Country):Promise<Country>{
-  return this.http.post<Country>(this.url,country).toPromise();
+async addCountry(country:CountryDto):Promise<CountryDto>{
+  return this.http.post<CountryDto>(this.url,country).toPromise();
 
 }
-async deleteCountry(code:number):Promise<Country>{
-  return this.http.delete<Country>(`${this.url}/${code}`).toPromise();
+async deleteCountry(code:number):Promise<CountryDto>{
+  return this.http.delete<CountryDto>(`${this.url}/${code}`).toPromise();
 }
 
-async updateCountry(country,code):Promise<Country>{
+async updateCountry(country,code):Promise<CountryDto>{
 
   let url=`${this.url}/${code}`;
   console.log(`url is ${url}`);
-  return this.http.put<Country>(url,country).toPromise();
+  return this.http.put<CountryDto>(url,country).toPromise();
 }
 }
