@@ -4,7 +4,7 @@
 .container {
     margin:20px;
     display: flex;
-    height: 110vh;
+
     justify-content:flex-start;
     align-items: center;
     flex-direction: column;
