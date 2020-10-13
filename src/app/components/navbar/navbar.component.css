@@ -15,8 +15,8 @@
     height:100px;
     margin: 10px;
 
-
-    font-size: 1.5em;
+font-weight: lighter;
+    font-size:1.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,13 +30,13 @@ a{
   
 }
 a:hover{
-    color:rgb(218, 213, 213);
+    color: #d5d5d5;
 }
 
 
 
 
  .active-link{
-    color:rgb(218, 213, 213);
+    color: #d5d5d5;
 
  }
