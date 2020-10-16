@@ -65,11 +65,9 @@
         <label for="primarylanguage">Primary language</label><br>
         
 
-        <p-dropdown id= "primarylanguage" [options]="language" [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown>
+        <p-dropdown class="dropdown" id= "primarylanguage" [options]="language" [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown>
 
-        <!-- <input id="primarylanguage"
-            [(ngModel)]="company.primaryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText>
-             -->
+      
     </div>
 
     <div *ngIf="company.multiLanguageYn === 'Y'">
@@ -80,10 +78,8 @@
 
             <div class="p-field p-col">
                 <label for="secondarylanguage">Secondary language</label><br>
-                <p-dropdown id= "secondarylanguage" [options]="language" [(ngModel)]="company.secondryLangauge" optionLabel="code"></p-dropdown>
+                <p-dropdown class="dropdown" id= "secondarylanguage" [options]="language" [(ngModel)]="company.secondryLangauge" optionLabel="code"></p-dropdown>
                 
-                <!-- <input id="secondarylanguage"
-                    [(ngModel)]="company.secondryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText> -->
             </div>
 
         </div>
@@ -120,10 +116,9 @@
 
         <div class="p-field p-col">
             <label for="baseCurCode">BaseCurCode</label>
-            <p-dropdown id= "baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode" optionLabel="code"></p-dropdown>
+            <p-dropdown  id= "baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode" optionLabel="code"></p-dropdown>
 
-            <!-- <input id="baseCurCode" [(ngModel)]="company.baseCurCode"
-                maxlength="200" type="text" pInputText> -->
+        
         </div>
 
         <div class="p-field p-col">

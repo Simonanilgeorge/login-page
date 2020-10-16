@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyDto } from '../../../dto/company.dto';
+import { CompanyDto,Currency,Language } from '../../../dto/company.dto';
 import { CompanyService } from '../../../providers/company.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -22,14 +22,14 @@ export class AddOrUpdateComponent implements OnInit {
   addMandatory: boolean = true;
   updatable: boolean = false;
 
-  selectedCurrency:any;
-  currency = [
+
+  currency:Currency= [
     { code: "OMR", label: "Omani rial" },
     { code: "USD", label: "United States Dollar" },
     { code: "EUR", label: "Euro" },
     { code: "INR", label: "Indian Rupee" }]
 
-    language = [
+    language:Language = [
       { code: "en", label: "English" },
       { code: "hi", label: "Hindi" },
       { code: "ar", label: "Arabic" },

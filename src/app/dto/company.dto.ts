@@ -19,3 +19,17 @@ export class CompanyDto{
     moduleType:string="RC";
 
 }
+
+export interface Currency{
+    code:string;
+    label:string;
+
+
+}
+
+
+export interface Language{
+    code:string;
+    label:string;
+}
+
