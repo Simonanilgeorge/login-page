@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { Location } from '@angular/common';
+import {SelectItem} from 'primeng/api';
 
 @Component({
   selector: 'app-add-or-update',
@@ -20,7 +22,23 @@ export class AddOrUpdateComponent implements OnInit {
   addMandatory: boolean = true;
   updatable: boolean = false;
 
-  constructor(private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  selectedCurrency:any;
+  currency = [
+    { code: "OMR", label: "Omani rial" },
+    { code: "USD", label: "United States Dollar" },
+    { code: "EUR", label: "Euro" },
+    { code: "INR", label: "Indian Rupee" }]
+
+    language = [
+      { code: "en", label: "English" },
+      { code: "hi", label: "Hindi" },
+      { code: "ar", label: "Arabic" },
+      { code: "ml", label: "Malayalam" } ]
+
+  constructor(  private location: Location,private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { 
+
+
+  }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -114,7 +132,11 @@ export class AddOrUpdateComponent implements OnInit {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
           console.log(`error`);
         })
-
+this.reset();
+        setTimeout(()=>{
+          this.location.back();
+        },1000)
+       
 
 
     }
@@ -188,6 +210,23 @@ export class AddOrUpdateComponent implements OnInit {
     }
   }
 
+reset(){
+  this.company.coCode=null;
+  this.company.coName=null;
+  this.company.coShName=null;
+  this.company.modiCloseDate=null;
+  this.company.moduleType=null;
+  this.company.primaryLangauge=null;
+  this.company.secondryLangauge=null;
+  this.company.add1=null;
+  this.company.add2=null;
+  this.company.add3=null
+  this.company.baseCurCode=null;
+  this.company.email=null;
+  this.company.website=null;
+  this.company.yrSDt=null;
+  this.company.yrEDt=null;
 
+}
 
 }

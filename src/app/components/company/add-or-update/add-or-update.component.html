@@ -45,8 +45,8 @@
 
 
         <div class="p-field p-col">
-            <label for="module type">Module Type *required : </label><input id="module type"
-                [(ngModel)]="company.moduleType" maxlength="200" type="text" style="text-transform: uppercase;" required
+            <label for="module type">Module Type  : </label><input id="module type"
+                [(ngModel)]="company.moduleType" maxlength="200" type="text" style="text-transform: uppercase;" required [disabled]="true"
                 pInputText>
         </div>
 
@@ -62,8 +62,14 @@
     </div>
 
     <div class="p-field">
-        <label for="primarylanguage">Primary language</label><br><input id="primarylanguage"
+        <label for="primarylanguage">Primary language</label><br>
+        
+
+        <p-dropdown id= "primarylanguage" [options]="language" [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown>
+
+        <!-- <input id="primarylanguage"
             [(ngModel)]="company.primaryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText>
+             -->
     </div>
 
     <div *ngIf="company.multiLanguageYn === 'Y'">
@@ -73,8 +79,11 @@
 
 
             <div class="p-field p-col">
-                <label for="secondarylanguage">Secondary language</label><br><input id="secondarylanguage"
-                    [(ngModel)]="company.secondryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText>
+                <label for="secondarylanguage">Secondary language</label><br>
+                <p-dropdown id= "secondarylanguage" [options]="language" [(ngModel)]="company.secondryLangauge" optionLabel="code"></p-dropdown>
+                
+                <!-- <input id="secondarylanguage"
+                    [(ngModel)]="company.secondryLangauge" maxlength="200" type="text" maxlength="2" style="width:392px" pInputText> -->
             </div>
 
         </div>
@@ -110,8 +119,11 @@
     <div class="p-fluid p-formgrid p-grid">
 
         <div class="p-field p-col">
-            <label for="baseCurCode">BaseCurCode</label><input id="baseCurCode" [(ngModel)]="company.baseCurCode"
-                maxlength="200" type="text" pInputText>
+            <label for="baseCurCode">BaseCurCode</label>
+            <p-dropdown id= "baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode" optionLabel="code"></p-dropdown>
+
+            <!-- <input id="baseCurCode" [(ngModel)]="company.baseCurCode"
+                maxlength="200" type="text" pInputText> -->
         </div>
 
         <div class="p-field p-col">
