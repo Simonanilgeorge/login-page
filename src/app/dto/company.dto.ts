@@ -16,6 +16,6 @@ export class CompanyDto{
     baseCurCode:string|null;
     rateDecPts:number|null;
     modiCloseDate:Date;
-    moduleType:string
+    moduleType:string="RC";
 
 }
