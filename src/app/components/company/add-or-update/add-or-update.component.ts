@@ -23,13 +23,15 @@ export class AddOrUpdateComponent implements OnInit {
   updatable: boolean = false;
 
 
-  currency:Currency= [
+  currency:Currency[]= [
+   
     { code: "OMR", label: "Omani rial" },
     { code: "USD", label: "United States Dollar" },
     { code: "EUR", label: "Euro" },
-    { code: "INR", label: "Indian Rupee" }]
+    { code: "INR", label: "Indian Rupee" },
+    {code:null,label:null},]
 
-    language:Language = [
+    language:Language[] = [
       { code: "en", label: "English" },
       { code: "hi", label: "Hindi" },
       { code: "ar", label: "Arabic" },
@@ -198,6 +200,7 @@ this.reset();
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
       this.CompanyService.addNewCompany(this.company).then(data => {
+        console.log(`added country`);
         console.log(Object.entries(data));
       },
         (err) => {
