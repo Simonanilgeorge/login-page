@@ -12,7 +12,7 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
 
-private company_url=`${environment.base_url}/ico`;
+  private company_url = `${environment.base_url}/ico`;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -20,30 +20,30 @@ private company_url=`${environment.base_url}/ico`;
 
 
 
- async getCompanyDetails():  Promise<CompanyDto[]> {
+  async getCompanyDetails(): Promise<CompanyDto[]> {
     return this.http.get<CompanyDto[]>(this.company_url).toPromise();
   }
 
 
 
-  async deleteCompany(code:string):Promise<CompanyDto>{
+  async deleteCompany(code: string): Promise<CompanyDto> {
     return this.http.delete<CompanyDto>(`${this.company_url}/${code}`).toPromise();
   }
 
 
-  async addNewCompany(newCompany):Promise<CompanyDto>{
-   return this.http.post<CompanyDto>(this.company_url,newCompany,this.httpOptions).toPromise(); 
+  async addNewCompany(newCompany): Promise<CompanyDto> {
+    return this.http.post<CompanyDto>(this.company_url, newCompany, this.httpOptions).toPromise();
   }
 
-  async getSingleCompany(code):Promise<CompanyDto>{
+  async getSingleCompany(code): Promise<CompanyDto> {
 
 
     return this.http.get<CompanyDto>(`${this.company_url}/${code}`).toPromise();
 
   }
 
-  async updateCompany(code,updatedCompany):Promise<CompanyDto>{
-    return this.http.put<CompanyDto>(`${this.company_url}/${code}`,updatedCompany,this.httpOptions).toPromise();
+  async updateCompany(code, updatedCompany): Promise<CompanyDto> {
+    return this.http.put<CompanyDto>(`${this.company_url}/${code}`, updatedCompany, this.httpOptions).toPromise();
   }
 
 }

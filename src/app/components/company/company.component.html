@@ -2,64 +2,71 @@
 
 
 <div class="container">
-<p-toast></p-toast>
+    <p-toast></p-toast>
 
-<!-- <h1 style="text-align: center;">Company Master</h1> -->
-<p-accordion [multiple]="true" activeIndex="0 1">
-
-
-    <p-accordionTab header="Company Table">
-
-<p-toolbar styleClass="p-mb-4">
-    <ng-template pTemplate="left">
-        <button pButton pRipple label="Add company" icon="pi pi-plus" class="p-button-success p-mr-2"
-            routerLink="/addcompany"></button>
-    </ng-template>
-</p-toolbar>
+    <!-- <h1 style="text-align: center;">Company Master</h1> -->
+    <p-accordion [multiple]="true" activeIndex="0 1">
 
 
-<p-table [value]="companies" #dt dataKey="coCode" [filterDelay]="0" [globalFilterFields]="['coCode','coName','coShName']">
+        <p-accordionTab header="Company Table">
+
+            <p-toolbar styleClass="p-mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label="Add company" icon="pi pi-plus" class="p-button-success p-mr-2"
+                        routerLink="/addcompany"></button>
+                </ng-template>
+            </p-toolbar>
 
 
-    <ng-template pTemplate="caption">
-        <div class="table-header">
-            List of Companies
-            <span class="p-input-icon-left">
-
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
-                    placeholder="search..." />
-            </span>
-        </div>
-    </ng-template>
-
-    <ng-template pTemplate="header">
-        <tr>
-            <th pSortableColumn="coCode">Company code <p-sortIcon field="coCode"></p-sortIcon></th>
-            <th pSortableColumn="coName">Company name<p-sortIcon field="coName"></p-sortIcon></th>
-            <th pSortableColumn="coShName">Company short name<p-sortIcon field="coShName"></p-sortIcon></th>
-            <th style="width:8rem"></th>
-            <th style="width:8rem"></th>
-        </tr>
-    </ng-template>
+            <p-table [value]="companies" #dt dataKey="coCode" [filterDelay]="0"
+                [globalFilterFields]="['coCode','coName','coShName']">
 
 
-    <ng-template pTemplate="body" let-company>
-        <tr>
-            <td>{{company.coCode}}</td>
-            <td>{{company.coName}}</td>
-            <td>{{company.coShName|uppercase}}</td>
-            <td><button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text" style="cursor: pointer;" routerLink="/updatecompany/{{company.coCode}}"></button></td>
-            <td><button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCompany(company.coCode)"></button></td>
+                <ng-template pTemplate="caption">
+                    <div class="table-header">
+                        List of Companies
+                        <span class="p-input-icon-left">
 
-        </tr>
-    </ng-template>
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                placeholder="search..." />
+                        </span>
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="coCode">Company code <p-sortIcon field="coCode"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="coName">Company name<p-sortIcon field="coName"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="coShName">Company short name<p-sortIcon field="coShName"></p-sortIcon>
+                        </th>
+                        <th style="width:8rem"></th>
+                        <th style="width:8rem"></th>
+                    </tr>
+                </ng-template>
 
 
-</p-table>
+                <ng-template pTemplate="body" let-company>
+                    <tr>
+                        <td>{{company.coCode}}</td>
+                        <td>{{company.coName}}</td>
+                        <td>{{company.coShName|uppercase}}</td>
+                        <td><button pButton pRipple type="button" icon="pi pi-pencil"
+                                class="p-button-rounded p-button-text" style="cursor: pointer;"
+                                routerLink="/updatecompany/{{company.coCode}}"></button></td>
+                        <td><button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="deleteCompany(company.coCode)"></button></td>
+
+                    </tr>
+                </ng-template>
 
 
-</p-accordionTab>
+            </p-table>
 
-</p-accordion>
+
+        </p-accordionTab>
+
+    </p-accordion>
 </div>

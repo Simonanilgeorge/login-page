@@ -35,7 +35,7 @@ export class CompanyComponent implements OnInit {
 
 
 
-    this.CompanyService.deleteCompany(code).then(data =>{
+    this.CompanyService.deleteCompany(code).then(data => {
       console.log(`deleted ${Object.entries(data)} successfully`)
     },
       (err) => {
@@ -44,16 +44,16 @@ export class CompanyComponent implements OnInit {
 
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company deleted' });
 
-        //function to remove company 
-        this.companies = this.companies.filter((company) => {
-          if (company.coCode !== code) {
-            return true;
-          }
-          else {
-            return false;
-          }
-        });
-    
+    //function to remove company 
+    this.companies = this.companies.filter((company) => {
+      if (company.coCode !== code) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    });
+
 
   }
 

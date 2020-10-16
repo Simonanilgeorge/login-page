@@ -20,20 +20,20 @@ export class HomeComponent implements OnInit {
 
   }
 
-displayCurrentUser(){
-  if (this.route.snapshot.params.username) {
-    let currentUser = this.route.snapshot.paramMap.get('username');
-    this.loginService.saveUserName(currentUser);
-    this.userName = currentUser;
+  displayCurrentUser() {
+    if (this.route.snapshot.params.username) {
+      let currentUser = this.route.snapshot.paramMap.get('username');
+      this.loginService.saveUserName(currentUser);
+      this.userName = currentUser;
 
+
+    }
+    else {
+
+      this.userName = this.loginService.getCurrentUser();
+
+    }
 
   }
-  else {
-
-    this.userName = this.loginService.getCurrentUser();
-
-  }
-
-}
 
 }

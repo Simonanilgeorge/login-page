@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyDto,Currency,Language } from '../../../dto/company.dto';
+import { CompanyDto, Currency, Language } from '../../../dto/company.dto';
 import { CompanyService } from '../../../providers/company.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Location } from '@angular/common';
-import {SelectItem} from 'primeng/api';
+import { SelectItem } from 'primeng/api';
 
 @Component({
   selector: 'app-add-or-update',
@@ -23,21 +23,21 @@ export class AddOrUpdateComponent implements OnInit {
   updatable: boolean = false;
 
 
-  currency:Currency[]= [
-   
+  currency: Currency[] = [
+
     { code: "OMR", label: "Omani rial" },
     { code: "USD", label: "United States Dollar" },
     { code: "EUR", label: "Euro" },
     { code: "INR", label: "Indian Rupee" },
-    {code:null,label:null},]
+    { code: null, label: null },]
 
-    language:Language[] = [
-      { code: "en", label: "English" },
-      { code: "hi", label: "Hindi" },
-      { code: "ar", label: "Arabic" },
-      { code: "ml", label: "Malayalam" } ]
+  language: Language[] = [
+    { code: "en", label: "English" },
+    { code: "hi", label: "Hindi" },
+    { code: "ar", label: "Arabic" },
+    { code: "ml", label: "Malayalam" }]
 
-  constructor(  private location: Location,private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { 
+  constructor(private location: Location, private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
 
 
   }
@@ -86,13 +86,13 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-     
+
         return;
       }
 
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-        
+
         return;
 
       }
@@ -100,14 +100,14 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-   
+
         return;
       }
 
 
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-    
+
         return;
       }
 
@@ -115,7 +115,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-  
+
         return;
       }
 
@@ -134,11 +134,11 @@ export class AddOrUpdateComponent implements OnInit {
           this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error' });
           console.log(`error`);
         })
-this.reset();
-        setTimeout(()=>{
-          this.location.back();
-        },1000)
-       
+      this.reset();
+      setTimeout(() => {
+        this.location.back();
+      }, 1000)
+
 
 
     }
@@ -156,7 +156,7 @@ this.reset();
 
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-      
+
         return;
 
       }
@@ -164,7 +164,7 @@ this.reset();
 
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-    
+
         return;
 
       }
@@ -172,7 +172,7 @@ this.reset();
 
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-     
+
         return;
 
       }
@@ -180,7 +180,7 @@ this.reset();
 
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-     
+
         return;
 
 
@@ -213,23 +213,23 @@ this.reset();
     }
   }
 
-reset(){
-  this.company.coCode=null;
-  this.company.coName=null;
-  this.company.coShName=null;
-  this.company.modiCloseDate=null;
-  this.company.moduleType=null;
-  this.company.primaryLangauge=null;
-  this.company.secondryLangauge=null;
-  this.company.add1=null;
-  this.company.add2=null;
-  this.company.add3=null
-  this.company.baseCurCode=null;
-  this.company.email=null;
-  this.company.website=null;
-  this.company.yrSDt=null;
-  this.company.yrEDt=null;
+  reset() {
+    this.company.coCode = null;
+    this.company.coName = null;
+    this.company.coShName = null;
+    this.company.modiCloseDate = null;
+    this.company.moduleType = null;
+    this.company.primaryLangauge = null;
+    this.company.secondryLangauge = null;
+    this.company.add1 = null;
+    this.company.add2 = null;
+    this.company.add3 = null
+    this.company.baseCurCode = null;
+    this.company.email = null;
+    this.company.website = null;
+    this.company.yrSDt = null;
+    this.company.yrEDt = null;
 
-}
+  }
 
 }
