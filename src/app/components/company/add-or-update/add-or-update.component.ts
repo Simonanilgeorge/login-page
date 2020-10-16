@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Location } from '@angular/common';
-import { SelectItem } from 'primeng/api';
+
 
 @Component({
   selector: 'app-add-or-update',
@@ -135,6 +135,9 @@ export class AddOrUpdateComponent implements OnInit {
           console.log(`error`);
         })
       this.reset();
+
+
+      
       setTimeout(() => {
         this.location.back();
       }, 1000)
