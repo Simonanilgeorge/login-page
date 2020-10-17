@@ -11,7 +11,7 @@ const routes: Routes = [{ path: '', pathMatch: 'full', component: LoginComponent
 { path: 'company', component: CompanyComponent },
 { path: 'country', component: CountryComponent },
 { path: 'home', component: HomeComponent },
-{ path: 'home/:username', component: HomeComponent },
+{ path: 'home/:userName', component: HomeComponent },
 { path: 'addcompany', component: AddOrUpdateComponent },
 { path: 'updatecompany/:coCode', component: AddOrUpdateComponent }];
 

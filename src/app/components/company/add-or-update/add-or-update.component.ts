@@ -24,12 +24,13 @@ export class AddOrUpdateComponent implements OnInit {
 
 
   currency: Currency[] = [
+    { code: null, label: null },
 
     { code: "OMR", label: "Omani rial" },
     { code: "USD", label: "United States Dollar" },
     { code: "EUR", label: "Euro" },
     { code: "INR", label: "Indian Rupee" },
-    { code: null, label: null },]
+  ]
 
   language: Language[] = [
     { code: "en", label: "English" },
@@ -37,7 +38,7 @@ export class AddOrUpdateComponent implements OnInit {
     { code: "ar", label: "Arabic" },
     { code: "ml", label: "Malayalam" }]
 
-  constructor(private location: Location, private CompanyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
+  constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
 
 
   }
@@ -56,7 +57,7 @@ export class AddOrUpdateComponent implements OnInit {
       this.updatable = true;
 
 
-      this.CompanyService.getSingleCompany(id).then(data => {
+      this.companyService.getSingleCompany(id).then(data => {
         console.log(data)
         data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate, 'yyyy-MM-dd'));
         if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt, 'yyyy-MM-dd')); }
@@ -126,7 +127,7 @@ export class AddOrUpdateComponent implements OnInit {
 
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
-      this.CompanyService.updateCompany(this.company.coCode, this.company).then(data => {
+      this.companyService.updateCompany(this.company.coCode, this.company).then(data => {
         console.log(`the upadted company is`)
         console.log(Object.entries(data));
       },
@@ -197,13 +198,14 @@ export class AddOrUpdateComponent implements OnInit {
       if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
 
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
+  
 
 
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
-      this.CompanyService.addNewCompany(this.company).then(data => {
+      this.companyService.addNewCompany(this.company).then(data => {
         console.log(`added country`);
+             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
         console.log(Object.entries(data));
       },
         (err) => {
@@ -212,6 +214,7 @@ export class AddOrUpdateComponent implements OnInit {
           console.log(`error`);
         });
 
+   
 
     }
   }

@@ -16,12 +16,12 @@ export class CompanyComponent implements OnInit {
   public companies: CompanyDto[];
 
 
-  constructor(private CompanyService: CompanyService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private companyService: CompanyService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
   ngOnInit(): void { this.getCompanyDetails(); }
 
   getCompanyDetails() {
-    this.CompanyService.getCompanyDetails().then(data => {
+    this.companyService.getCompanyDetails().then(data => {
       this.companies = data
     },
       (err) => {
@@ -35,24 +35,26 @@ export class CompanyComponent implements OnInit {
 
 
 
-    this.CompanyService.deleteCompany(code).then(data => {
+    this.companyService.deleteCompany(code).then(data => {
       console.log(`deleted ${Object.entries(data)} successfully`)
+      //function to remove company 
+      this.companies = this.companies.filter((company) => {
+        if (company.coCode !== code) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      });
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company deleted' });
     },
       (err) => {
         console.log(`error`);
       });
 
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company deleted' });
 
-    //function to remove company 
-    this.companies = this.companies.filter((company) => {
-      if (company.coCode !== code) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    });
+
+
 
 
   }

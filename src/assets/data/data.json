@@ -1,56 +1,56 @@
 [
     {
-        "username": "john",
+        "userName": "john",
         "email": "john@gmail.com",
         "password": "doe"
     },
     {
-        "username": "michael",
+        "userName": "michael",
         "email": "michael@gmail.com",
         "password": "scott"
     },
     {
-        "username": "dwight",
+        "userName": "dwight",
         "email": "dwight@gmail.com",
         "password": "schrute"
     },
     {
-        "username": "angela",
+        "userName": "angela",
         "email": "angela@gmail.com",
         "password": "martin"
     },
     {
-        "username": "stanley",
+        "userName": "stanley",
         "email": "stanley@gmail.com",
         "password": "hudson"
     },
     {
-        "username": "kevin",
+        "userName": "kevin",
         "email": "kevin@gmail.com",
         "password": "malone"
     },
     {
-        "username": "andrew",
+        "userName": "andrew",
         "email": "andrew@gmail.com",
         "password": "bernard"
     },
     {
-        "username": "oscar",
+        "userName": "oscar",
         "email": "oscar@gmail.com",
         "password": "martinez"
     },
     {
-        "username": "bob",
+        "userName": "bob",
         "email": "bob@gmail.com",
         "password": "vance"
     },
     {
-        "username": "toby",
+        "userName": "toby",
         "email": "toby@gmail.com",
         "password": "flenderson"
     },
     {
-        "username": "david",
+        "userName": "david",
         "email": "david@gmail.com",
         "password": "wallace"
     }

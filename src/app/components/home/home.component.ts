@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
   }
 
   displayCurrentUser() {
-    if (this.route.snapshot.params.username) {
-      let currentUser = this.route.snapshot.paramMap.get('username');
+    if (this.route.snapshot.params.userName) {
+      let currentUser = this.route.snapshot.paramMap.get('userName');
       this.loginService.saveUserName(currentUser);
       this.userName = currentUser;
 

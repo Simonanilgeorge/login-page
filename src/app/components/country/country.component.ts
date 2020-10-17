@@ -49,17 +49,20 @@ export class CountryComponent implements OnInit {
   delete(code: number) {
     this.countryService.deleteCountry(code).then(data => {
       console.log(data);
+
+      this.countries = this.countries.filter((country) => {
+        if (country.code != code) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      })
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Deleted' });
+    }, (err) => {
+      console.log(`error`);
     })
 
-    this.countries = this.countries.filter((country) => {
-      if (country.code != code) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    })
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Deleted' });
   }
 
 
