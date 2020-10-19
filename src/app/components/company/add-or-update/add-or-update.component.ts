@@ -141,9 +141,9 @@ console.log(this.company.baseCurCode);
 
 
       
-      // setTimeout(() => {
-      //   this.location.back();
-      // }, 1000)
+      setTimeout(() => {
+        this.location.back();
+      }, 1000)
 
 
 
