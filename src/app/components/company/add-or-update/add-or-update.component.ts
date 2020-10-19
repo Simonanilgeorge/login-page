@@ -6,7 +6,6 @@ import { DatePipe } from '@angular/common';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
 import { Location } from '@angular/common';
-import {SelectItem} from 'primeng/api';
 
 
 @Component({
@@ -22,27 +21,23 @@ export class AddOrUpdateComponent implements OnInit {
   updateMandatory: boolean = true;
   addMandatory: boolean = true;
   updatable: boolean = false;
+  language:Language[]=[
+    { value: "en", label: "English" },
+    { value: "hi", label: "Hindi" },
+    { value: "ar", label: "Arabic" },
+    { value: "ml", label: "Malayalam" }
+
+  ];
+  currency:Currency[] = [
+    { value: null, label: null },
+    { value: "OMR", label: "Omani rial" },
+    { value: "USD", label: "United States Dollar" },
+    { value: "EUR", label: "Euro" },
+    { value: "INR", label: "Indian Rupee" },
+  ]
 
 
-  // currency: Currency[] = [
-  //   { code: null, label: null },
-
-  //   { code: "OMR", label: "Omani rial" },
-  //   { code: "USD", label: "United States Dollar" },
-  //   { code: "EUR", label: "Euro" },
-  //   { code: "INR", label: "Indian Rupee" },
-  // ]
-
-  // language: Language[] = [
-  //   { code: "en", label: "English" },
-  //   { code: "hi", label: "Hindi" },
-  //   { code: "ar", label: "Arabic" },
-  //   { code: "ml", label: "Malayalam" }]
-
-  constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
-
-
-  }
+  constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {}
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
@@ -56,9 +51,7 @@ export class AddOrUpdateComponent implements OnInit {
     console.log(`the id to be updated is ${id}`)
     if (id !== null) {
       this.updatable = true;
-
-
-      this.companyService.getSingleCompany(id).then(data => {
+this.companyService.getSingleCompany(id).then(data => {
         console.log(data)
         data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate, 'yyyy-MM-dd'));
         if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt, 'yyyy-MM-dd')); }
@@ -73,11 +66,7 @@ export class AddOrUpdateComponent implements OnInit {
     else return;
 
   }
-
-
-
-
-  //function to add or update companies
+//function to add or update companies
   addOrUpdateCompany() {
 
 console.log(this.company.baseCurCode);
@@ -121,9 +110,7 @@ console.log(this.company.baseCurCode);
         return;
       }
 
-
-
-      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
 
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
@@ -138,21 +125,11 @@ console.log(this.company.baseCurCode);
           console.log(`error`);
         })
       this.reset();
-
-
-      
-      setTimeout(() => {
+setTimeout(() => {
         this.location.back();
       }, 1000)
-
-
-
-    }
-
-
-
-
-    else {
+ }
+ else {
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
 
@@ -189,20 +166,10 @@ console.log(this.company.baseCurCode);
 
         return;
 
-
-
-      }
-
-
-
-
+     }
 
       if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-
-  
-
-
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
       this.companyService.addNewCompany(this.company).then(data => {
@@ -215,12 +182,8 @@ console.log(this.company.baseCurCode);
 
           console.log(`error`);
         });
-
-   
-
     }
   }
-
   reset() {
     this.company.coCode = null;
     this.company.coName = null;

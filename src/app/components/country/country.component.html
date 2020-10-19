@@ -2,19 +2,13 @@
 <div class="container">
     <p-toast></p-toast>
     <p-accordion [multiple]="true" activeIndex="0 1">
-
-
         <p-accordionTab header="Country Table">
-
-
             <p-toolbar styleClass="p-mb-4">
                 <ng-template pTemplate="left">
                     <button pButton pRipple label="Add country" icon="pi pi-plus" class="p-button-success p-mr-2"
                         (click)="openNew()"></button>
                 </ng-template>
             </p-toolbar>
-
-
             <p-table #dt [value]="countries" dataKey="code" styleClass="p-datatable-lg" [filterDelay]="0"
                 [globalFilterFields]="['name','code','alpha2Code','alpha3Code']" editMode="row">
                 <ng-template pTemplate="caption">
@@ -41,12 +35,9 @@
                         <th style="width:8rem"></th>
                     </tr>
                 </ng-template>
-
-
                 <ng-template pTemplate="body" let-country let-editing="editing" let-ri="rowIndex">
                     <tr [pEditableRow]="country">
                         <td>
-
                             {{country.code}}
                         </td>
                         <td>
@@ -90,18 +81,11 @@
                             <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times"
                                 (click)="log()" class="p-button-rounded p-button-text p-button-danger"></button>
                         </td>
-                        <td>
-                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                                (click)="delete(country.code)"></button>
-                        </td>
+                        <td><button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                (click)="delete(country.code)"></button></td>
                     </tr>
-
                 </ng-template>
             </p-table>
-
-
-
-
             <p-dialog [(visible)]="countryDialog" [style]="{width: '450px'}" header="Country Details" [modal]="true"
                 styleClass="p-fluid">
                 <ng-template pTemplate="content">
@@ -116,9 +100,7 @@
                         <p>Alpha3code (max: 3 characters)</p><input style="text-transform: uppercase;"
                             [(ngModel)]="country.alpha3Code" maxlength="3" type="text" pInputText>
                     </div>
-
                 </ng-template>
-
                 <ng-template pTemplate="footer">
                     <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
                         (click)="hideDialog()"></button>
@@ -126,8 +108,6 @@
                         (click)="add()"></button>
                 </ng-template>
             </p-dialog>
-
         </p-accordionTab>
-
     </p-accordion>
 </div>

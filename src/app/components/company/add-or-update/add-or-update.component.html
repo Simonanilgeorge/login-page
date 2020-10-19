@@ -3,7 +3,6 @@
 <div class="pcontainer">
     <div class="container">
         <div class="p-fluid " style="width:800px">
-
             <div *ngIf="updatable; else elseBlock">
                 <h1 style="text-align: center;">Update Company</h1>
             </div>
@@ -11,120 +10,81 @@
                 <h1 style="text-align: center;">Add Company</h1>
             </ng-template>
             <div class="p-field">
-                <label for="company code">Company Code *required (max 2 characters) :</label><br><input
-                    id="company code" [(ngModel)]="company.coCode" type="text" maxlength="2" required
+                <label for="company code">Company Code *required (max 2 characters) :</label><br>
+                <input id="company code" [(ngModel)]="company.coCode" type="text" maxlength="2" required
                     style="width:392px" [disabled]="updatable" pInputText>
             </div>
-
             <div class="p-fluid p-formgrid p-grid ">
                 <div class="p-field p-col ">
-                    <label for="company name">Company Name *required : </label><input id="company name"
-                        [(ngModel)]="company.coName" type="text" required pInputText class="p-mr-2">
+                    <label for="company name">Company Name *required : </label>
+                    <input id="company name" [(ngModel)]="company.coName" type="text" required pInputText
+                        class="p-mr-2">
                 </div>
-
                 <div class="p-field p-col">
-                    <label for="short name ">Company Short Name *required : </label><input id="short name"
-                        style="text-transform: uppercase;" [(ngModel)]="company.coShName" required type="text"
-                        pInputText class="p-mr-2">
-                </div>
-
+                    <label for="short name ">Company Short Name *required : </label>
+                    <input id="short name" style="text-transform: uppercase;" [(ngModel)]="company.coShName" required
+                        type="text" pInputText class="p-mr-2">
+                    </div>
             </div>
-
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="modiclosedate">Modification Close Date *required : </label>
                     <p-calendar id="modiclosedate" [(ngModel)]="company.modiCloseDate" icon="pi pi-calendar" required>
                     </p-calendar>
                 </div>
-
                 <div class="p-field p-col">
-                    <label for="module type">Module Type : </label><input id="module type"
-                        [(ngModel)]="company.moduleType" maxlength="200" type="text" style="text-transform: uppercase;"
-                        required [disabled]="true" pInputText>
+                    <label for="module type">Module Type : </label>
+                    <input id="module type" [(ngModel)]="company.moduleType" maxlength="200" type="text"
+                        style="text-transform: uppercase;" required [disabled]="true" pInputText>
                 </div>
-                
             </div>
-
             <div class="p-field">
-                <label for="multiLanguageYn">Multi Language</label><input id="multiLanguageYn" type="checkbox" value="N"
-                    [checked]="company.multiLanguageYn === 'Y'"
+                <label for="multiLanguageYn">Multi Language</label>
+                <input id="multiLanguageYn" type="checkbox" value="N" [checked]="company.multiLanguageYn === 'Y'"
                     (change)="company.multiLanguageYn = $event.target.checked ? 'Y' : 'N'" />
             </div>
-
             <div class="p-field">
                 <label for="primarylanguage">Primary language</label><br>
-
-                
-                <select class="dropdown" name="primarylanguage" id="curcode" [(ngModel)]="company.primaryLangauge">
-
-                    <option value="en">English</option>
-                    <option value="hi">Hindi</option>
-                    <option value="ar">Arabic</option>
-                    <option value="ml">Malayalam</option>
-                </select>
-                <!-- <p-dropdown class="dropdown" id="primarylanguage" [options]="language"
-                    [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown> -->
+                <p-dropdown class="dropdown" id="primarylanguage" [options]="language"
+                    [(ngModel)]="company.primaryLangauge"></p-dropdown>
             </div>
-
             <div *ngIf="company.multiLanguageYn === 'Y'">
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col">
                         <label for="secondarylanguage">Secondary language</label><br>
-
-                        <select class="dropdown" name="secondarylanguage" id="curcode" [(ngModel)]="company.secondryLangauge">
-
-                            <option value="en">English</option>
-                            <option value="hi">Hindi</option>
-                            <option value="ar">Arabic</option>
-                            <option value="ml">Malayalam</option>
-                        </select>
-                        <!-- <p-dropdown class="dropdown" id="secondarylanguage" [options]="language"
-                            [(ngModel)]="company.secondryLangauge" optionLabel="language.code"></p-dropdown> -->
+                        <p-dropdown class="dropdown" id="secondarylanguage" [options]="language"
+                            [(ngModel)]="company.secondryLangauge"></p-dropdown>
                     </div>
                 </div>
             </div>
-
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
-                    <label for="add1">Add1</label><input id="add1" [(ngModel)]="company.add1" maxlength="200"
-                        type="text" [disabled]="!company.multiLanguageYn" pInputText>
+                    <label for="add1">Add1</label>
+                    <input id="add1" [(ngModel)]="company.add1" maxlength="200" type="text"
+                        [disabled]="!company.multiLanguageYn" pInputText>
                 </div>
                 <div class="p-field p-col">
-                    <label for="add2">Add2</label><input id="add2" [(ngModel)]="company.add2" maxlength="200"
-                        type="text" pInputText>
+                    <label for="add2">Add2</label>
+                    <input id="add2" [(ngModel)]="company.add2" maxlength="200" type="text" pInputText>
                 </div>
                 <div class="p-field p-col">
-                    <label for="add3">Add3</label><input id="add3" [(ngModel)]="company.add3" maxlength="200"
-                        type="text" pInputText></div>
+                    <label for="add3">Add3</label>
+                    <input id="add3" [(ngModel)]="company.add3" maxlength="200" type="text" pInputText></div>
             </div>
-
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="baseCurCode">BaseCurCode</label>
-
-                    <select class="dropdown" name="baseCurCode" id="curcode" [(ngModel)]="company.baseCurCode">
-
-                        <option value="OMR">Omani rial</option>
-                        <option value="USD">United States Dollar</option>
-                        <option value="INR">Indian Rupee</option>
-                        <option value="EUR">Euro</option>
-                    </select>
-                    <!-- <p-dropdown id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"
-                        optionLabel="code"></p-dropdown> -->
+                    <p-dropdown id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"></p-dropdown>
                 </div>
-
                 <div class="p-field p-col">
-                    <label for="email">email</label><input id="email" [(ngModel)]="company.email" maxlength="200"
-                        type="text" pInputText>
+                    <label for="email">email</label>
+                    <input id="email" [(ngModel)]="company.email" maxlength="200" type="text" pInputText>
                 </div>
-
                 <div class="p-field p-col">
-                    <label for="website">Website</label><input id="website" [(ngModel)]="company.website"
-                        maxlength="200" type="text" pInputText>
+                    <label for="website">Website</label>
+                    <input id="website" [(ngModel)]="company.website" maxlength="200" type="text" pInputText>
                 </div>
-
             </div>
-
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="yrSDt">Year start date</label>
@@ -135,18 +95,15 @@
                     <p-calendar id="yrEDt" [(ngModel)]="company.yrEDt"></p-calendar>
                 </div>
             </div>
-
             <div *ngIf="company.yrSDt>company.yrEDt;">
                 <div>
                     <p style="color:red;">*Start date must be before end date</p>
                 </div>
             </div>
-
             <div *ngIf="updatable; else addButton">
                 <button pButton pRipple label="Update" class="p-button-success" (click)="addOrUpdateCompany()"
                     style="width:100px;"></button>
             </div>
-            
             <ng-template #addButton>
                 <button pButton pRipple label="Add" class="p-button-success" (click)="addOrUpdateCompany()"
                     style="width:100px;"></button>

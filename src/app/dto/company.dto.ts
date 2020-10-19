@@ -1,6 +1,6 @@
 export class CompanyDto {
 
-    
+
     coCode: string;
     multiLanguageYn: string = "N";
     primaryLangauge: string | null;
@@ -15,23 +15,18 @@ export class CompanyDto {
     website: string | null;
     yrSDt: Date | null;
     yrEDt: Date | null;
-    baseCurCode: string|null;
+    baseCurCode: string | null;
     rateDecPts: number | null;
     modiCloseDate: Date;
     moduleType: string = "RC";
 
 }
-
 export interface Currency {
-    code: string;
+    value: string;
     label: string;
-
-
 }
-
-
 export interface Language {
-    code: string;
+    value: string;
     label: string;
 }
 
