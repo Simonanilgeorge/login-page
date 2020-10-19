@@ -53,16 +53,33 @@
 
             <div class="p-field">
                 <label for="primarylanguage">Primary language</label><br>
-                <p-dropdown class="dropdown" id="primarylanguage" [options]="language"
-                    [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown>
+
+                
+                <select class="dropdown" name="primarylanguage" id="curcode" [(ngModel)]="company.primaryLangauge">
+
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ar">Arabic</option>
+                    <option value="ml">Malayalam</option>
+                </select>
+                <!-- <p-dropdown class="dropdown" id="primarylanguage" [options]="language"
+                    [(ngModel)]="company.primaryLangauge" optionLabel="code"></p-dropdown> -->
             </div>
 
             <div *ngIf="company.multiLanguageYn === 'Y'">
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col">
                         <label for="secondarylanguage">Secondary language</label><br>
-                        <p-dropdown class="dropdown" id="secondarylanguage" [options]="language"
-                            [(ngModel)]="company.secondryLangauge" optionLabel="language.code"></p-dropdown>
+
+                        <select class="dropdown" name="secondarylanguage" id="curcode" [(ngModel)]="company.secondryLangauge">
+
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="ar">Arabic</option>
+                            <option value="ml">Malayalam</option>
+                        </select>
+                        <!-- <p-dropdown class="dropdown" id="secondarylanguage" [options]="language"
+                            [(ngModel)]="company.secondryLangauge" optionLabel="language.code"></p-dropdown> -->
                     </div>
                 </div>
             </div>
@@ -84,8 +101,16 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="baseCurCode">BaseCurCode</label>
-                    <p-dropdown id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"
-                        optionLabel="code"></p-dropdown>
+
+                    <select class="dropdown" name="baseCurCode" id="curcode" [(ngModel)]="company.baseCurCode">
+
+                        <option value="OMR">Omani rial</option>
+                        <option value="USD">United States Dollar</option>
+                        <option value="INR">Indian Rupee</option>
+                        <option value="EUR">Euro</option>
+                    </select>
+                    <!-- <p-dropdown id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"
+                        optionLabel="code"></p-dropdown> -->
                 </div>
 
                 <div class="p-field p-col">
