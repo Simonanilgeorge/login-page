@@ -14,21 +14,20 @@ export class CountryService {
 
   async getCountries(): Promise<CountryDto[]> {
     return this.http.get<CountryDto[]>(this.url).toPromise();
-
   }
 
   async addCountry(country: CountryDto): Promise<CountryDto> {
     return this.http.post<CountryDto>(this.url, country).toPromise();
-
   }
+
   async deleteCountry(code: number): Promise<CountryDto> {
     return this.http.delete<CountryDto>(`${this.url}/${code}`).toPromise();
   }
 
   async updateCountry(country, code): Promise<CountryDto> {
-
     let url = `${this.url}/${code}`;
     console.log(`url is ${url}`);
     return this.http.put<CountryDto>(url, country).toPromise();
   }
+  
 }

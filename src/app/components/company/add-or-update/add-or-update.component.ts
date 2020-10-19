@@ -17,41 +17,34 @@ import { Location } from '@angular/common';
 export class AddOrUpdateComponent implements OnInit {
 
   public company: CompanyDto = new CompanyDto();
-
   updateMandatory: boolean = true;
   addMandatory: boolean = true;
   updatable: boolean = false;
-  language:Language[]=[
+  language: Language[] = [
     { value: "en", label: "English" },
     { value: "hi", label: "Hindi" },
     { value: "ar", label: "Arabic" },
     { value: "ml", label: "Malayalam" }
 
   ];
-  currency:Currency[] = [
+  currency: Currency[] = [
     { value: null, label: null },
     { value: "OMR", label: "Omani rial" },
     { value: "USD", label: "United States Dollar" },
     { value: "EUR", label: "Euro" },
     { value: "INR", label: "Indian Rupee" },
-  ]
-
-
-  constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) {}
-
+  ];
+  constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.getSingleCompany();
   }
-
   getSingleCompany() {
-
-
     const id = this.route.snapshot.paramMap.get('coCode');
     console.log(`the id to be updated is ${id}`)
     if (id !== null) {
       this.updatable = true;
-this.companyService.getSingleCompany(id).then(data => {
+      this.companyService.getSingleCompany(id).then(data => {
         console.log(data)
         data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate, 'yyyy-MM-dd'));
         if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt, 'yyyy-MM-dd')); }
@@ -64,57 +57,37 @@ this.companyService.getSingleCompany(id).then(data => {
         })
     }
     else return;
-
   }
-//function to add or update companies
+  //function to add or update companies
   addOrUpdateCompany() {
-
-console.log(this.company.baseCurCode);
+    console.log(this.company.baseCurCode);
     //update company function
     if (this.updatable) {
       console.log(`the company to be updated is `)
       console.log(this.company.coCode);
-
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-
         return;
       }
-
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-
         return;
-
       }
-
-
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-
         return;
       }
-
-
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-
         return;
       }
-
-
-
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-
         return;
       }
-
-if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
-
       this.companyService.updateCompany(this.company.coCode, this.company).then(data => {
         console.log(`the upadted company is`)
         console.log(Object.entries(data));
@@ -125,56 +98,40 @@ if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(
           console.log(`error`);
         })
       this.reset();
-setTimeout(() => {
+      setTimeout(() => {
         this.location.back();
       }, 1000)
- }
- else {
+
+    }
+
+    else {
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-
         return;
-
       }
-
       if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-
         return;
-
       }
-
-
       if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-
         return;
-
       }
-
-
       if (this.company.modiCloseDate == null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-
         return;
-
       }
-
-
       if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-
         return;
-
-     }
-
+      }
       if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
       this.companyService.addNewCompany(this.company).then(data => {
         console.log(`added country`);
-             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
         console.log(Object.entries(data));
       },
         (err) => {
@@ -200,7 +157,5 @@ setTimeout(() => {
     this.company.website = null;
     this.company.yrSDt = null;
     this.company.yrEDt = null;
-
   }
-
 }

@@ -11,10 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class CompanyComponent implements OnInit {
 
-
-
   public companies: CompanyDto[];
-
 
   constructor(private companyService: CompanyService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
 
@@ -26,15 +23,9 @@ export class CompanyComponent implements OnInit {
     },
       (err) => {
         console.log("error");
-
       });
   }
-
-
   deleteCompany(code: string) {
-
-
-
     this.companyService.deleteCompany(code).then(data => {
       console.log(`deleted ${Object.entries(data)} successfully`)
       //function to remove company 
@@ -51,14 +42,5 @@ export class CompanyComponent implements OnInit {
       (err) => {
         console.log(`error`);
       });
-
-
-
-
-
-
   }
-
-
-
 }

@@ -1,6 +1,4 @@
 export class CompanyDto {
-
-
     coCode: string;
     multiLanguageYn: string = "N";
     primaryLangauge: string | null;

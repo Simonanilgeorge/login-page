@@ -12,13 +12,10 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class CountryComponent implements OnInit {
 
-
   countryDialog: boolean;
   submitted: boolean;
   public countries: CountryDto[] = [];
-
   public country: CountryDto = new CountryDto();
-
   clonedProducts: { [s: string]: CountryDto; } = {};
 
   constructor(private countryService: CountryService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
@@ -26,7 +23,6 @@ export class CountryComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.getCountries();
-
   }
 
   getCountries() {
@@ -34,14 +30,12 @@ export class CountryComponent implements OnInit {
       this.countries = data;
       console.log(data);
     })
-
   }
 
   add() {
     this.countryService.addCountry(this.country).then(data => {
       console.log(data);
       this.countries.push(data);
-
     })
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Added' });
   }
@@ -62,9 +56,7 @@ export class CountryComponent implements OnInit {
     }, (err) => {
       console.log(`error`);
     })
-
   }
-
 
   update(code: number, name: string, alpha2Code: string, alpha3Code: string) {
     this.country.name = name;
@@ -79,7 +71,6 @@ export class CountryComponent implements OnInit {
   }
 
   openNew() {
-
     this.submitted = false;
     this.countryDialog = true;
   }
@@ -88,7 +79,6 @@ export class CountryComponent implements OnInit {
     this.countryDialog = false;
     this.submitted = false;
   }
-
 
   log() {
     console.log(`test`);
