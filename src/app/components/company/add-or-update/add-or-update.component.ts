@@ -64,6 +64,15 @@ export class AddOrUpdateComponent implements OnInit {
     console.log(this.company.baseCurCode);
     //update company function
     if (this.updatable) {
+
+      if(this.company.multiLanguageYn==='N'){
+        this.company.secondryLangauge=null;
+      }
+
+      if(this.company.multiLanguageYn==='Y'&&this.company.secondryLangauge===null){
+        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
+        return;
+      }
       console.log(`the company to be updated is `)
       console.log(this.company.coCode);
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
@@ -106,6 +115,17 @@ export class AddOrUpdateComponent implements OnInit {
     }
 
     else {
+      if(this.company.multiLanguageYn==='N'){
+        this.company.secondryLangauge=null;
+
+      }
+
+      if(this.company.multiLanguageYn==='Y' && this.company.secondryLangauge===null){
+       
+       console.log('secondary needed');
+        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
+        return;
+      }
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
         return;
@@ -149,4 +169,10 @@ export class AddOrUpdateComponent implements OnInit {
   reset() {
     this.company = new CompanyDto();
     }
+
+
+checkFields(){
+  
+}
+
 }
