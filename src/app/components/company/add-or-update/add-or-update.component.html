@@ -45,14 +45,14 @@
             </div>
             <div class="p-field">
                 <label for="primarylanguage">Primary language</label><br>
-                <p-dropdown class="dropdown" id="primarylanguage" [options]="language"
+                <p-dropdown placeholder="English" class="dropdown" id="primarylanguage" [options]="language"
                     [(ngModel)]="company.primaryLangauge"></p-dropdown>
             </div>
             <div *ngIf="company.multiLanguageYn === 'Y'">
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col">
                         <label for="secondarylanguage">Secondary language</label><br>
-                        <p-dropdown class="dropdown" id="secondarylanguage" [options]="language"
+                        <p-dropdown placeholder="Select Language" class="dropdown" id="secondarylanguage" [options]="language"
                             [(ngModel)]="company.secondryLangauge"></p-dropdown>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="baseCurCode">BaseCurCode</label>
-                    <p-dropdown id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"></p-dropdown>
+                    <p-dropdown placeholder="Select currency code"id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"></p-dropdown>
                 </div>
                 <div class="p-field p-col">
                     <label for="email">email</label>

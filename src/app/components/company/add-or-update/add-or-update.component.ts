@@ -21,7 +21,7 @@ export class AddOrUpdateComponent implements OnInit {
   addMandatory: boolean = true;
   updatable: boolean = false;
   language: Language[] = [
-    { value: null, label: null },
+  
     { value: "en", label: "English" },
     { value: "hi", label: "Hindi" },
     { value: "ar", label: "Arabic" },
@@ -29,7 +29,7 @@ export class AddOrUpdateComponent implements OnInit {
 
   ];
   currency: Currency[] = [
-    { value: null, label: null },
+   
     { value: "OMR", label: "Omani rial" },
     { value: "USD", label: "United States Dollar" },
     { value: "EUR", label: "Euro" },
