@@ -140,23 +140,13 @@ export class AddOrUpdateComponent implements OnInit {
 
           console.log(`error`);
         });
+        this.reset();
+        setTimeout(() => {
+          this.location.back();
+        }, 2000)
     }
   }
   reset() {
-    this.company.coCode = null;
-    this.company.coName = null;
-    this.company.coShName = null;
-    this.company.modiCloseDate = null;
-    this.company.moduleType = null;
-    this.company.primaryLangauge = null;
-    this.company.secondryLangauge = null;
-    this.company.add1 = null;
-    this.company.add2 = null;
-    this.company.add3 = null
-    this.company.baseCurCode = null;
-    this.company.email = null;
-    this.company.website = null;
-    this.company.yrSDt = null;
-    this.company.yrEDt = null;
+    this.company = new CompanyDto();
     }
 }
