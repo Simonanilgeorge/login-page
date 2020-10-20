@@ -21,6 +21,7 @@ export class AddOrUpdateComponent implements OnInit {
   addMandatory: boolean = true;
   updatable: boolean = false;
   language: Language[] = [
+    { value: null, label: null },
     { value: "en", label: "English" },
     { value: "hi", label: "Hindi" },
     { value: "ar", label: "Arabic" },
@@ -100,7 +101,7 @@ export class AddOrUpdateComponent implements OnInit {
       this.reset();
       setTimeout(() => {
         this.location.back();
-      }, 1000)
+      }, 2000)
 
     }
 
@@ -157,5 +158,5 @@ export class AddOrUpdateComponent implements OnInit {
     this.company.website = null;
     this.company.yrSDt = null;
     this.company.yrEDt = null;
-  }
+    }
 }

@@ -24,7 +24,7 @@ export class CountryService {
     return this.http.delete<CountryDto>(`${this.url}/${code}`).toPromise();
   }
 
-  async updateCountry(country, code): Promise<CountryDto> {
+  async updateCountry(country:CountryDto, code:number): Promise<CountryDto> {
     let url = `${this.url}/${code}`;
     console.log(`url is ${url}`);
     return this.http.put<CountryDto>(url, country).toPromise();

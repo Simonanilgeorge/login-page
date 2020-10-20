@@ -23,13 +23,13 @@ export class CompanyService {
   async deleteCompany(code: string): Promise<CompanyDto> {
     return this.http.delete<CompanyDto>(`${this.company_url}/${code}`).toPromise();
   }
-  async addNewCompany(newCompany): Promise<CompanyDto> {
+  async addNewCompany(newCompany:CompanyDto): Promise<CompanyDto> {
     return this.http.post<CompanyDto>(this.company_url, newCompany, this.httpOptions).toPromise();
   }
-  async getSingleCompany(code): Promise<CompanyDto> {
+  async getSingleCompany(code:string): Promise<CompanyDto> {
     return this.http.get<CompanyDto>(`${this.company_url}/${code}`).toPromise();
   }
-  async updateCompany(code, updatedCompany): Promise<CompanyDto> {
+  async updateCompany(code:string, updatedCompany:CompanyDto): Promise<CompanyDto> {
     return this.http.put<CompanyDto>(`${this.company_url}/${code}`, updatedCompany, this.httpOptions).toPromise();
   }
 }
