@@ -21,7 +21,7 @@ export class AddOrUpdateComponent implements OnInit {
   addMandatory: boolean = true;
   updatable: boolean = false;
   language: Language[] = [
-  
+
     { value: "en", label: "English" },
     { value: "hi", label: "Hindi" },
     { value: "ar", label: "Arabic" },
@@ -29,7 +29,7 @@ export class AddOrUpdateComponent implements OnInit {
 
   ];
   currency: Currency[] = [
-   
+
     { value: "OMR", label: "Omani rial" },
     { value: "USD", label: "United States Dollar" },
     { value: "EUR", label: "Euro" },
@@ -65,11 +65,12 @@ export class AddOrUpdateComponent implements OnInit {
     //update company function
     if (this.updatable) {
 
-      if(this.company.multiLanguageYn==='N'){
-        this.company.secondryLangauge=null;
+      if (this.company.multiLanguageYn === 'N') {
+        this.company.secondryLangauge = null;
+
       }
 
-      if(this.company.multiLanguageYn==='Y'&&this.company.secondryLangauge===null){
+      if (this.company.multiLanguageYn === 'Y' && this.company.secondryLangauge === null) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
         return;
       }
@@ -115,17 +116,9 @@ export class AddOrUpdateComponent implements OnInit {
     }
 
     else {
-      if(this.company.multiLanguageYn==='N'){
-        this.company.secondryLangauge=null;
 
-      }
 
-      if(this.company.multiLanguageYn==='Y' && this.company.secondryLangauge===null){
-       
-       console.log('secondary needed');
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
-        return;
-      }
+
       if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
         return;
@@ -146,6 +139,17 @@ export class AddOrUpdateComponent implements OnInit {
         this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
         return;
       }
+
+      if (this.company.multiLanguageYn === 'N') {
+        this.company.secondryLangauge = null;
+      }
+
+      if (this.company.multiLanguageYn == 'Y' && this.company.secondryLangauge == null) {
+
+        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
+
+        return;
+      }
       if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
       if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
       this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
@@ -160,19 +164,16 @@ export class AddOrUpdateComponent implements OnInit {
 
           console.log(`error`);
         });
-        this.reset();
-        setTimeout(() => {
-          this.location.back();
-        }, 2000)
+      this.reset();
+      setTimeout(() => {
+        this.location.back();
+      }, 2000)
     }
   }
   reset() {
     this.company = new CompanyDto();
-    }
+  }
 
 
-checkFields(){
-  
-}
 
 }
