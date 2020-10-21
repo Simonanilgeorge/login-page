@@ -45,7 +45,7 @@
             </div>
             <div class="p-field">
                 <label for="primarylanguage">Primary language</label><br>
-                <p-dropdown placeholder="English" class="dropdown" id="primarylanguage" [options]="language"
+                <p-dropdown placeholder="Select Language" class="dropdown" id="primarylanguage" [options]="language"
                     [(ngModel)]="company.primaryLangauge"></p-dropdown>
             </div>
             <div *ngIf="company.multiLanguageYn === 'Y'">

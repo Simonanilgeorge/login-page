@@ -1,7 +1,7 @@
 export class CompanyDto {
     coCode: string;
     multiLanguageYn: string = "N";
-    primaryLangauge: string | null;
+    primaryLangauge: string | null="en";
     secondryLangauge: String | null;
     coName: string;
     coShName: string;

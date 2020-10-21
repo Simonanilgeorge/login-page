@@ -17,8 +17,6 @@ import { Location } from '@angular/common';
 export class AddOrUpdateComponent implements OnInit {
 
   public company: CompanyDto = new CompanyDto();
-  updateMandatory: boolean = true;
-  addMandatory: boolean = true;
   updatable: boolean = false;
   language: Language[] = [
 
@@ -63,42 +61,48 @@ export class AddOrUpdateComponent implements OnInit {
   addOrUpdateCompany() {
     console.log(this.company.baseCurCode);
     //update company function
+
+
+    if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
+      return;
+    }
+    if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
+      return;
+    }
+    if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
+      return;
+    }
+    if (this.company.modiCloseDate == null) {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
+      return;
+    }
+    if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
+      return;
+    }
+
+    if (this.company.multiLanguageYn === 'N') {
+      this.company.secondryLangauge = null;
+    }
+
+    if (this.company.multiLanguageYn == 'Y' && this.company.secondryLangauge == null) {
+
+      this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
+
+      return;
+    }
+
+    if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+    if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
+    this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
+
+
     if (this.updatable) {
 
-      if (this.company.multiLanguageYn === 'N') {
-        this.company.secondryLangauge = null;
 
-      }
-
-      if (this.company.multiLanguageYn === 'Y' && this.company.secondryLangauge === null) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
-        return;
-      }
-      console.log(`the company to be updated is `)
-      console.log(this.company.coCode);
-      if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-        return;
-      }
-      if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-        return;
-      }
-      if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-        return;
-      }
-      if (this.company.modiCloseDate == null) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-        return;
-      }
-      if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-        return;
-      }
-      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
-      if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-      this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
       this.companyService.updateCompany(this.company.coCode, this.company).then(data => {
         console.log(`the upadted company is`)
         console.log(Object.entries(data));
@@ -118,42 +122,6 @@ export class AddOrUpdateComponent implements OnInit {
     else {
 
 
-
-      if (!this.company.coCode || this.company.coCode == null || !this.company.coCode.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company code' });
-        return;
-      }
-      if (!this.company.coName || this.company.coName == null || !this.company.coName.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company name' });
-        return;
-      }
-      if (!this.company.coShName || this.company.coShName == null || !this.company.coShName.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company short name' });
-        return;
-      }
-      if (this.company.modiCloseDate == null) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the company Modification close date' });
-        return;
-      }
-      if (!this.company.moduleType || this.company.moduleType == null || !this.company.moduleType.trim()) {
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter the module type' });
-        return;
-      }
-
-      if (this.company.multiLanguageYn === 'N') {
-        this.company.secondryLangauge = null;
-      }
-
-      if (this.company.multiLanguageYn == 'Y' && this.company.secondryLangauge == null) {
-
-        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Enter Secondary language' });
-
-        return;
-      }
-      if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
-      if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-      this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
-
       this.companyService.addNewCompany(this.company).then(data => {
         console.log(`added country`);
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Company added' });
@@ -170,10 +138,10 @@ export class AddOrUpdateComponent implements OnInit {
       }, 2000)
     }
   }
+
+
   reset() {
     this.company = new CompanyDto();
   }
-
-
 
 }
