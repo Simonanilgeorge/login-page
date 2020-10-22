@@ -45,9 +45,9 @@ export class AddOrUpdateComponent implements OnInit {
       this.updatable = true;
       this.companyService.getSingleCompany(id).then(data => {
         console.log(data)
-        data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate, 'yyyy-MM-dd'));
-        if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt, 'yyyy-MM-dd')); }
-        if (data.yrEDt) { data.yrEDt = new Date(this.datePipe.transform(data.yrEDt, 'yyyy-MM-dd')); }
+        data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate,'yyyy-MM-dd'));
+        if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt,'yyyy-MM-dd')); }
+        if (data.yrEDt) { data.yrEDt = new Date(this.datePipe.transform(data.yrEDt,'yyyy-MM-dd')); }
         this.company = data;
       },
         (err) => {
@@ -95,9 +95,9 @@ export class AddOrUpdateComponent implements OnInit {
       return;
     }
 
-    if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
-    if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
-    this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
+    if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt,'yyyy-MM-dd')); }
+    if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt,'yyyy-MM-dd')); }
+    this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate,'yyyy-MM-dd'));
 
 
     if (this.updatable) {

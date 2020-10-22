@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   public allUsers: UserDto[] = [];
   userForm = this.fb.group({
     userName: ['', Validators.required],
-    email: ['', Validators.required],
     password: ['', Validators.required]
   });
 
@@ -38,9 +37,7 @@ export class LoginComponent implements OnInit {
   get userName() {
     return this.userForm.get('userName');
   }
-  get email() {
-    return this.userForm.get('email');
-  }
+
   get password() {
     return this.userForm.get('password');
   }
@@ -58,11 +55,12 @@ export class LoginComponent implements OnInit {
       }
     })
     console.log(`single user value is ${JSON.stringify(this.singleUser)}`);
-    if (!this.singleUser || (this.singleUser.userName !== this.userName.value || this.singleUser.password !== this.password.value || this.singleUser.email !== this.email.value)) {
+    if (!this.singleUser || (this.singleUser.userName !== this.userName.value || this.singleUser.password !== this.password.value)) {
       console.log(`invalid credentials`);
       this.notValid = true;
     }
     else {
+      this.loginService.saveUserName(this.userName.value);
       this.notValid = false;
       this.router.navigate(['/home', this.userName.value]);
       // this.router.navigate(['/home']);

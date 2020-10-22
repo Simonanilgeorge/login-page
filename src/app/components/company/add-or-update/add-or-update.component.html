@@ -29,7 +29,7 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="modiclosedate">Modification Close Date *required : </label>
-                    <p-calendar id="modiclosedate" [(ngModel)]="company.modiCloseDate" icon="pi pi-calendar" required>
+                    <p-calendar id="modiclosedate" [(ngModel)]="company.modiCloseDate" icon="pi pi-calendar" dateFormat="dd-mm-yy" required>
                     </p-calendar>
                 </div>
                 <div class="p-field p-col">
@@ -88,11 +88,11 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="yrSDt">Year start date</label>
-                    <p-calendar id="yrSDt" [(ngModel)]="company.yrSDt"></p-calendar>
+                    <p-calendar id="yrSDt" [(ngModel)]="company.yrSDt" dateFormat="dd-mm-yy"></p-calendar>
                 </div>
                 <div class="p-field p-col">
                     <label for="yrEDt">Year end date</label>
-                    <p-calendar id="yrEDt" [(ngModel)]="company.yrEDt"></p-calendar>
+                    <p-calendar id="yrEDt" [(ngModel)]="company.yrEDt" dateFormat="dd-mm-yy"></p-calendar>
                 </div>
             </div>
             <div *ngIf="company.yrSDt>company.yrEDt;">
