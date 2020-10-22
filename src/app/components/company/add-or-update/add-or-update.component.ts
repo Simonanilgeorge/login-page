@@ -17,6 +17,11 @@ import { Location } from '@angular/common';
 export class AddOrUpdateComponent implements OnInit {
 
   public company: CompanyDto = new CompanyDto();
+  public companies: CompanyDto[];
+
+
+  public sameComapnyId: boolean = false;
+
   updatable: boolean = false;
   language: Language[] = [
 
@@ -36,6 +41,8 @@ export class AddOrUpdateComponent implements OnInit {
   constructor(private location: Location, private companyService: CompanyService, private route: ActivatedRoute, private datePipe: DatePipe, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
   ngOnInit(): void {
     this.primengConfig.ripple = true;
+    this.getCompanyDetails();
+
     this.getSingleCompany();
   }
   getSingleCompany() {
@@ -45,9 +52,9 @@ export class AddOrUpdateComponent implements OnInit {
       this.updatable = true;
       this.companyService.getSingleCompany(id).then(data => {
         console.log(data)
-        data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate,'yyyy-MM-dd'));
-        if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt,'yyyy-MM-dd')); }
-        if (data.yrEDt) { data.yrEDt = new Date(this.datePipe.transform(data.yrEDt,'yyyy-MM-dd')); }
+        data.modiCloseDate = new Date(this.datePipe.transform(data.modiCloseDate, 'yyyy-MM-dd'));
+        if (data.yrSDt) { data.yrSDt = new Date(this.datePipe.transform(data.yrSDt, 'yyyy-MM-dd')); }
+        if (data.yrEDt) { data.yrEDt = new Date(this.datePipe.transform(data.yrEDt, 'yyyy-MM-dd')); }
         this.company = data;
       },
         (err) => {
@@ -55,11 +62,16 @@ export class AddOrUpdateComponent implements OnInit {
           console.log(`error`);
         })
     }
-    else return;
+    else
+      console.log(`the value of updatable variable is ${this.updatable}`);
+
+    return;
   }
   //function to add or update companies
   addOrUpdateCompany() {
-    console.log(this.company.baseCurCode);
+
+    console.log(`the value of basecur code is ${this.company.baseCurCode}`)
+
     //update company function
 
 
@@ -95,12 +107,12 @@ export class AddOrUpdateComponent implements OnInit {
       return;
     }
 
-    if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt,'yyyy-MM-dd')); }
-    if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt,'yyyy-MM-dd')); }
-    this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate,'yyyy-MM-dd'));
+    if (this.company.yrSDt) { this.company.yrSDt = new Date(this.datePipe.transform(this.company.yrSDt, 'yyyy-MM-dd')); }
+    if (this.company.yrEDt) { this.company.yrEDt = new Date(this.datePipe.transform(this.company.yrEDt, 'yyyy-MM-dd')); }
+    this.company.modiCloseDate = new Date(this.datePipe.transform(this.company.modiCloseDate, 'yyyy-MM-dd'));
 
 
-    if (this.updatable) {
+    if (this.updatable == true) {
 
 
       this.companyService.updateCompany(this.company.coCode, this.company).then(data => {
@@ -118,8 +130,24 @@ export class AddOrUpdateComponent implements OnInit {
       }, 2000)
 
     }
-
     else {
+      for (let i = 0; i < this.companies.length; i++) {
+        if (this.companies[i].coCode.trim() == this.company.coCode) {
+          this.sameComapnyId = true;
+          break;
+        }
+        else {
+          this.sameComapnyId = false;
+        }
+      }
+
+
+
+      if (this.sameComapnyId) {
+        this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Choose a different company code' });
+        console.log(`company with this id already exists`);
+        return;
+      }
 
 
       this.companyService.addNewCompany(this.company).then(data => {
@@ -136,9 +164,20 @@ export class AddOrUpdateComponent implements OnInit {
       setTimeout(() => {
         this.location.back();
       }, 2000)
+
     }
   }
 
+
+  getCompanyDetails() {
+    this.companyService.getCompanyDetails().then(data => {
+      this.companies = data;
+
+    },
+      (err) => {
+        console.log("error");
+      });
+  }
 
   reset() {
     this.company = new CompanyDto();
