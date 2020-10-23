@@ -1,4 +1,6 @@
 <app-navbar></app-navbar>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
 <div class="container">
     <p-toast></p-toast>
     <p-accordion [multiple]="true" activeIndex="0 1">
@@ -82,7 +84,7 @@
                                 (click)="log()" class="p-button-rounded p-button-text p-button-danger"></button>
                         </td>
                         <td><button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                                (click)="delete(country.code)"></button></td>
+                                (click)="confirm1(country.code)"></button></td>
                     </tr>
                 </ng-template>
             </p-table>

@@ -3,26 +3,44 @@ import { CountryDto } from '../../dto/country.dto';
 import { CountryService } from '../../providers/country.service';
 import { MessageService } from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.css'],
-  providers: [MessageService]
+  providers: [MessageService, ConfirmationService]
 })
 export class CountryComponent implements OnInit {
 
+  msgs: Message[] = [];
   countryDialog: boolean;
   submitted: boolean;
   public countries: CountryDto[] = [];
   public country: CountryDto = new CountryDto();
   clonedProducts: { [s: string]: CountryDto; } = {};
 
-  constructor(private countryService: CountryService, private messageService: MessageService, private primengConfig: PrimeNGConfig) { }
+  constructor(private countryService: CountryService, private messageService: MessageService, private primengConfig: PrimeNGConfig, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.getCountries();
+  }
+
+  confirm1(code: number) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete?',
+      header: 'Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.delete(code);
+        console.log(`accepted`);
+      },
+      reject: () => {
+        console.log(`rejected`);
+      }
+    });
   }
 
   getCountries() {
@@ -38,6 +56,8 @@ export class CountryComponent implements OnInit {
       this.countries.push(data);
     })
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Country Added' });
+    this.hideDialog()
+    this.reset();
   }
 
   delete(code: number) {
@@ -82,5 +102,9 @@ export class CountryComponent implements OnInit {
 
   log() {
     console.log(`test`);
+  }
+
+  reset() {
+    this.country = new CountryDto();
   }
 }

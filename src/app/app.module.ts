@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ToastModule} from 'primeng/toast';
 import {ToolbarModule} from 'primeng/toolbar';
 import {DialogModule} from 'primeng/dialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 import { DatePipe } from '@angular/common';
 
@@ -51,7 +52,8 @@ import { DatePipe } from '@angular/common';
     CalendarModule,
     TableModule,
     ToolbarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ConfirmDialogModule 
 
   ],
   providers: [DatePipe],

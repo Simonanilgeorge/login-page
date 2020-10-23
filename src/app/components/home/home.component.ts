@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   }
   displayCurrentUser() {
 
-      this.userName = this.loginService.getCurrentUser();
+    this.userName = this.loginService.getCurrentUser();
 
   }
 }

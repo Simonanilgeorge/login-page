@@ -29,7 +29,8 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="modiclosedate">Modification Close Date *required : </label>
-                    <p-calendar id="modiclosedate" [(ngModel)]="company.modiCloseDate" icon="pi pi-calendar" dateFormat="dd-mm-yy" required>
+                    <p-calendar id="modiclosedate" [(ngModel)]="company.modiCloseDate" icon="pi pi-calendar"
+                        dateFormat="dd-mm-yy" required>
                     </p-calendar>
                 </div>
                 <div class="p-field p-col">
@@ -52,8 +53,8 @@
                 <div class="p-fluid p-formgrid p-grid">
                     <div class="p-field p-col">
                         <label for="secondarylanguage">Secondary language</label><br>
-                        <p-dropdown placeholder="Select Language" class="dropdown" id="secondarylanguage" [options]="language"
-                            [(ngModel)]="company.secondryLangauge"></p-dropdown>
+                        <p-dropdown placeholder="Select Language" class="dropdown" id="secondarylanguage"
+                            [options]="language" [(ngModel)]="company.secondryLangauge"></p-dropdown>
                     </div>
                 </div>
             </div>
@@ -74,7 +75,8 @@
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col">
                     <label for="baseCurCode">BaseCurCode</label>
-                    <p-dropdown placeholder="Select currency code"id="baseCurCode" [options]="currency" [(ngModel)]="company.baseCurCode"></p-dropdown>
+                    <p-dropdown placeholder="Select currency code" id="baseCurCode" [options]="currency"
+                        [(ngModel)]="company.baseCurCode"></p-dropdown>
                 </div>
                 <div class="p-field p-col">
                     <label for="email">email</label>
